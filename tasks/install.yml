@@ -6,6 +6,7 @@
       - git
       - zsh
     state: present
+    use: "{{ 'homebrew' if (ansible_distribution == 'MacOSX' and ansible_machine == 'arm64') else 'auto' }}"
 
 - name: clone oh-my-zsh for users
   tags:
